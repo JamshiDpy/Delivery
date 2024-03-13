@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.admins',
     'apps.product',
     'apps.users',
+    'apps.simple_auth',
 ]
 
 MIDDLEWARE = [
@@ -84,22 +85,22 @@ WSGI_APPLICATION = 'Config.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
-DATABASES = {'default': {
-    "ENGINE": "django.db.backends.postgresql",
-    "NAME": env.str("DB_NAME"),
-    "USER": env.str("DB_USER"),
-    "PASSWORD": env.str("DB_PASSWORD"),
-    "HOST": env.str("DB_HOST"),
-    "PORT": "5432"
-}
-}
+# DATABASES = {'default': {
+#     "ENGINE": "django.db.backends.postgresql",
+#     "NAME": env.str("DB_NAME"),
+#     "USER": env.str("DB_USER"),
+#     "PASSWORD": env.str("DB_PASSWORD"),
+#     "HOST": env.str("DB_HOST"),
+#     "PORT": "5432"
+# }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -145,7 +146,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MAX_OTP_TRY = 3
 
-AUTH_USER_MODEL = 'users.Users'
+AUTH_USER_MODEL = 'simple_auth.Users'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [

@@ -1,1 +1,1 @@
-from .auth import AuthenticationView, ProfileView
+from .profile import ProfileView

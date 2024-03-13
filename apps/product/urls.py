@@ -10,5 +10,5 @@ router.register('product', ProductViewSet, 'product')
 
 
 urlpatterns = [
-    path('', include(router.urls))
+    # path('', include(router.urls))
 ]

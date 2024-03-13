@@ -7,12 +7,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import permissions
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-    TokenVerifyView
-)
-
 
 class JWTSchemaGenerator(OpenAPISchemaGenerator):
     def get_security_definitions(self):

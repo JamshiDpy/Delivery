@@ -4,6 +4,7 @@ from django.dispatch import receiver
 from django.utils.text import slugify
 
 from .category import Category
+from apps.admins.models import Branches
 
 
 class Product(models.Model):
@@ -18,6 +19,10 @@ class Product(models.Model):
     description_en = models.CharField(max_length=300)
     image = models.ImageField(upload_to='food')
     price = models.IntegerField()
+    tax_code = models.IntegerField(null=True, blank=True)
+    warehouse_code = models.IntegerField(null=True, blank=True)
+    branches = models.ManyToManyField(Branches, null=True, blank=True)
+    related_category = models.ManyToManyField(Category, null=True, blank=True, related_name='related_category')
 
     class Meta:
         ordering = ['-id']
